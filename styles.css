@@ -1,0 +1,136 @@
+body {
+    font-family: Verdana;
+    color: white;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+#taskCount{
+	font-size: 32px;
+}
+
+#currentSelect, #completedSelect{
+	font-size: 32px;
+	width: 80%;
+}
+
+.main {
+    background: rgba(255, 255, 255, 0.6);
+    width: 900px;
+    border-radius: 25px;
+    text-shadow: 5px 5px 5px #999;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+	text-shadow: 1px 1px 1px #000;
+    position: relative;
+    z-index: 1;
+}
+
+.tasks-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+	height: 65vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.currentTask, .completedTask {
+    background: rgba(255, 255, 255, 0.6);
+    width: 35%;
+    border-radius: 25px;
+    text-shadow: 5px 5px 5px #999;
+    text-align: center;
+    padding: 20px;
+    text-shadow: 1px 1px 1px #000;
+    position: relative;
+    z-index: 1;
+    min-height: 300px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#addButton{
+	background: rgb(140, 255, 173);
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 10px 5px 15px gray;
+	margin-left: 10px;
+}
+
+#addButton:hover {
+    background: rgb(140, 255, 173);
+    border-radius: 7px;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 10px 5px 15px gray;
+}
+
+#addButton:active {
+    background: rgb(93, 232, 132);
+    border-radius: 7px;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 24px;
+    box-shadow: 10px 5px 7px gray;
+}
+
+.clearAndAddButton {
+    background: rgb(140, 255, 173);
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 10px 5px 15px gray;
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
+}
+
+.clearAndAddButton:hover {
+    background: rgb(140, 255, 173);
+    border-radius: 7px;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 10px 5px 15px gray;
+}
+
+.clearAndAddButton:active {
+    background: rgb(93, 232, 132);
+    border-radius: 7px;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 24px;
+    box-shadow: 10px 5px 7px gray;
+}
+
+.input-style{
+	margin: auto;
+}
+
+#textTaskInput{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 19px;
+	width: 55%;
+	margin-right: 10px;
+}

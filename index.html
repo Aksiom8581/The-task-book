@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Список дел</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
+        <div id="particles-js"></div>
+        
+        <div class="main">
+            <h1>Задачник</h1>
+            
+            <div class="input-style">
+                <input type="text" id="textTaskInput" placeholder="Введите задачу (максимум 50 символов)" size="20" maxlength="50"/>
+                <button type="button" id="addButton">Отправить в таблицу</button>
+            </div>
+        </div>
+		
+		<div class="tasks-container">
+			<div class="completedTask">
+				<h1>Выполненные задачи</h1>
+				
+				<select multiple id="completedSelect" name="current">
+                </select>
+				
+				<button type="button" class="clearAndAddButton" id="clearCompletedButton">Удалить выполненную задачу</button>
+			</div>
+    
+			<div class="currentTask">
+				<h1>Текущие задачи</h1>
+
+				<select multiple id="currentSelect" name="complete">
+                </select>
+
+				<button type="button" class="clearAndAddButton" id="goCompleteButton">Выполнить</button>
+				
+				<p>
+					<b><span id="taskCount">Оставшиеся задачи: 0</span></b>
+				</p>
+			</div>
+		</div>
+        
+        <script src="particles.js"></script>
+        <script src="app.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
