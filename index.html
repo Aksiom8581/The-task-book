@@ -11,34 +11,46 @@
         <div class="main">
             <h1>Задачник</h1>
             
-            <div class="input-style">
+            <div>
                 <input type="text" id="textTaskInput" placeholder="Введите задачу (максимум 50 символов)" size="20" maxlength="50"/>
-                <button type="button" id="addButton">Отправить в таблицу</button>
+                <input type="text" id="textCategoryInput" placeholder="Введите категорию (максимум 25 символов)" size="20" maxlength="30"/>
             </div>
+
+             <button type="button" id="addButton">Отправить в таблицу</button>
         </div>
 		
 		<div class="tasks-container">
-			<div class="completedTask">
-				<h1>Выполненные задачи</h1>
-				
-				<select multiple id="completedSelect" name="current">
-                </select>
-				
-				<button type="button" class="clearAndAddButton" id="clearCompletedButton">Удалить выполненную задачу</button>
-			</div>
+            <div class="completedTask">
+                <h1>Выполненные задачи</h1>
+
+                <div class="category-filter">
+                    <select id="completedCategoryFilter">
+                        <option value="all">Все</option>
+                    </select>
+                </div>
+
+                <select multiple id="completedSelect"></select>
+
+                <button type="button" class="clearAndAddButton" id="clearCompletedButton">Удалить выполненную задачу</button>
+            </div>
     
-			<div class="currentTask">
-				<h1>Текущие задачи</h1>
+            <div class="currentTask">
+                <h1>Текущие задачи</h1>
 
-				<select multiple id="currentSelect" name="complete">
-                </select>
+                <div class="category-filter">
+                    <select id="currentCategoryFilter">
+                        <option value="all">Все</option>
+                    </select>
+                </div>
 
-				<button type="button" class="clearAndAddButton" id="goCompleteButton">Выполнить</button>
-				
-				<p>
-					<b><span id="taskCount">Оставшиеся задачи: 0</span></b>
-				</p>
-			</div>
+                <select multiple id="currentSelect"></select>
+
+                <button type="button" class="clearAndAddButton" id="goCompleteButton">Выполнить</button>
+
+                <p>
+                    <b><span id="taskCount">Оставшиеся задачи: 0</span></b>
+                </p>
+            </div>
 		</div>
         
         <script src="particles.js"></script>

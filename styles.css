@@ -6,25 +6,6 @@ body {
     position: relative;
 }
 
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    z-index: -1;
-}
-
-#taskCount{
-	font-size: 32px;
-}
-
-#currentSelect, #completedSelect{
-	font-size: 32px;
-	width: 80%;
-}
-
 .main {
     background: rgba(255, 255, 255, 0.6);
     width: 900px;
@@ -62,34 +43,6 @@ body {
     overflow-y: auto;
 }
 
-#addButton{
-	background: rgb(140, 255, 173);
-    border-radius: 7px;
-    border: none;
-    padding: 10px;
-    font-size: 24px;
-    box-shadow: 10px 5px 15px gray;
-	margin-left: 10px;
-}
-
-#addButton:hover {
-    background: rgb(140, 255, 173);
-    border-radius: 7px;
-    border: none;
-    padding: 15px;
-    font-size: 24px;
-    box-shadow: 10px 5px 15px gray;
-}
-
-#addButton:active {
-    background: rgb(93, 232, 132);
-    border-radius: 7px;
-    border: none;
-    color: white;
-    padding: 12px;
-    font-size: 24px;
-    box-shadow: 10px 5px 7px gray;
-}
 
 .clearAndAddButton {
     background: rgb(140, 255, 173);
@@ -98,39 +51,99 @@ body {
     padding: 10px;
     font-size: 24px;
     box-shadow: 10px 5px 15px gray;
-	position: absolute;
-	right: 5%;
-	bottom: 5%;
+    position: absolute;
+    right: 5%;
+    transition: transform 0.35s, background-color 0.3s, box-shadow 0.2s;
+    bottom: 5%;
 }
 
-.clearAndAddButton:hover {
-    background: rgb(140, 255, 173);
-    border-radius: 7px;
-    border: none;
-    padding: 15px;
+#currentCategoryFilter, #completedCategoryFilter {
     font-size: 24px;
-    box-shadow: 10px 5px 15px gray;
+    width: 80%;
+    border-radius: 5px;
 }
 
-.clearAndAddButton:active {
-    background: rgb(93, 232, 132);
-    border-radius: 7px;
-    border: none;
-    color: white;
-    padding: 12px;
-    font-size: 24px;
-    box-shadow: 10px 5px 7px gray;
-}
-
-.input-style{
-	margin: auto;
-}
-
-#textTaskInput{
+#textTaskInput, #textCategoryInput {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 19px;
-	width: 55%;
-	margin-right: 10px;
+    width: 55%;
+    margin-right: 10px;
+    display: flex;
+    margin: 5px;
 }
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+#taskCount{
+	font-size: 32px;
+}
+
+#currentSelect, #completedSelect{
+	font-size: 32px;
+	width: 80%;
+}
+
+#addButton {
+    background: rgb(140, 255, 173);
+    border-radius: 7px;
+    border: none;
+    position: absolute;
+    padding: 10px;
+    bottom: 23%;
+    right: 5%;
+    font-size: 24px;
+    box-shadow: 10px 5px 15px gray;
+    transition: transform 0.35s, background-color 0.3s, box-shadow 0.2s;
+}
+
+#addButton:hover, .clearAndAddButton:hover {
+    transform: scale(1.08);
+}
+
+#addButton:active, .clearAndAddButton:active {
+    transform: scale(1.04);
+    transition: transform 0.02s;
+    background-color: rgb(89, 255, 136);
+    box-shadow: 10px 5px 7px gray;
+}
+
+/* Анимация для добавления новых задач */
+@keyframes fadeInDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        background-color: rgba(140, 255, 173, 0.3);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        background-color: transparent;
+    }
+}
+
+/* Стиль для новых элементов select */
+.currentSelect-option, .completedSelect-option {
+    animation: fadeInDrop 0.5s ease-out forwards;
+    padding: 5px;
+    margin: 2px 0;
+    border-radius: 4px;
+}
+
+/* Для выделенных элементов */
+#currentSelect option:checked, #completedSelect option:checked {
+    background-color: rgba(140, 255, 173, 0.5);
+}
+
+
+
