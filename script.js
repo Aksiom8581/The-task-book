@@ -244,19 +244,33 @@ document.addEventListener('DOMContentLoaded', function () {
             const selectedOption = completedSelect.options[completedSelect.selectedIndex];
             const taskId = parseInt(selectedOption.dataset.id);
 
-            // Удаляем связанную категорию, если она есть
-            const categoryOptions = completedCategoryFilter.options;
-            for (let i = 0; i < categoryOptions.length; i++) {
-                if (parseInt(categoryOptions[i].dataset.id) === taskId) {
-                    completedCategoryFilter.remove(i);
-                    break;
+            // Находим задачу, которую удаляем
+            const taskToRemove = tasks.find(task => task.id === taskId);
+            if (!taskToRemove) return;
+
+            // Удаляем задачу из массива
+            tasks = tasks.filter(task => task.id !== taskId);
+
+            // Проверяем, есть ли еще задачи с этой категорией в выполненных
+            const hasOtherTasksInCategory = tasks.some(
+                task => task.completed && task.category === taskToRemove.category
+            );
+
+            // Если это последняя задача в категории, удаляем категорию из фильтра выполненных
+            if (!hasOtherTasksInCategory) {
+                const completedCategoryOptions = completedCategoryFilter.options;
+                for (let i = 0; i < completedCategoryOptions.length; i++) {
+                    if (completedCategoryOptions[i].textContent === taskToRemove.category) {
+                        completedCategoryFilter.remove(i);
+                        break;
+                    }
                 }
             }
 
-            // Удаляем задачу из массива и из интерфейса
-            tasks = tasks.filter(task => task.id !== taskId);
+            // Удаляем задачу из интерфейса
             completedSelect.remove(completedSelect.selectedIndex);
             saveTasks();
+            saveCategories(); // Не забываем сохранить изменения в категориях
         }
     }
 
